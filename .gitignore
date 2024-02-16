@@ -2,3 +2,6 @@ build/*
 install/*
 log/*
 src/external/*
+src/
+compile_commands.json
+scripts/*
