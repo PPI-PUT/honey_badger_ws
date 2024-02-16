@@ -1,1 +1,1 @@
-docker exec -it -u $USER ros_container bash
+docker exec -it -u $USER honey_badger bash

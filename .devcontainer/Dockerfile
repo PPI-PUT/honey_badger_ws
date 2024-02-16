@@ -71,14 +71,20 @@ RUN python3 -m pip --no-cache-dir install \
 
 
 # install your custom packages
-# RUN apt-get update && apt-get install -y --no-install-recommends \
-#    package_name_1 \
-#    package_name_2
-
+RUN apt-get update && apt-get install -y --no-install-recommends \
+   rsync \
+   libglew-dev \
+   libeigen3-dev \
+   lua5.1 \
+   liblua5.1-0 \
+   liblua5.1-0-dev \
+   nlohmann-json3-dev \
+   ros-humble-teleop-twist-joy \
+   ros-humble-cv-bridge 
 
 # set up entrypoint
 COPY entrypoint /entrypoint
 ENTRYPOINT ["/entrypoint"]
 
 CMD ["/bin/bash"]
-LABEL maintainer="Amadeusz Szymko (amadeusz.szymko@put.poznan.pl)"
+LABEL maintainer="Maciej Krupka (krupka.maciej@icloud.com)"

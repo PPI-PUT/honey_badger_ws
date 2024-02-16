@@ -74,5 +74,6 @@
         "**/.git/objects/**",
         ".vscode",
         ".vscode-insiders",
-    ]
+    ],
+    "ros.distro": "humble"
 }
