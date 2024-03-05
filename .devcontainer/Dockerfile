@@ -49,6 +49,7 @@ RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     ros-humble-ros-base \
     ros-humble-rviz2 \
+    ros-humble-plotjuggler-ros \
     python3-autopep8 \
     python3-colcon-common-extensions \
     python3-rosdep \
