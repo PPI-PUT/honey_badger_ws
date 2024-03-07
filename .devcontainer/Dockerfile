@@ -65,7 +65,6 @@ RUN curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.
     && rm -rf /tmp/bashrc-git-prompt \
     && echo "source /opt/ros/humble/setup.bash" >> /etc/skel/.bashrc
 
-
 # install python packages
 RUN python3 -m pip --no-cache-dir install \
     setuptools==58.2.0
@@ -83,6 +82,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
    ros-humble-teleop-twist-joy \
    ros-humble-cv-bridge 
 
+RUN pip3 install scipy
 # set up entrypoint
 COPY entrypoint /entrypoint
 ENTRYPOINT ["/entrypoint"]
