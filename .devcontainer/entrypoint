@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-
+mkdir -p /home/${USER}/.ros/mab/config
 
 if [ -f /home/${USER}/${WORKSPACE}/install/setup.bash ]; then
     echo "source /home/${USER}/${WORKSPACE}/install/setup.bash" >> /home/${USER}/.bashrc;
