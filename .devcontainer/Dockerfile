@@ -54,6 +54,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # install ROS2 packages & init rosdep
 RUN apt-get update && apt-get install -y \
     ros-humble-rviz2 \
+    ros-humble-xacro \
     ros-humble-cv-bridge \
     ros-humble-plotjuggler-ros \
     ros-humble-teleop-twist-joy \

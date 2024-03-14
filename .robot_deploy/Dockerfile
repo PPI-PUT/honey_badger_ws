@@ -1,8 +1,8 @@
-# FROM ubuntu:jammy
 FROM ros:humble-ros-base
 # Environment variables
+ARG USER
 ARG WORKSPACE
-ENV USER=hb \
+ENV USER=${USER} \
     UID=1500 \
     GID=1500 \
     WORKSPACE=${WORKSPACE} \
@@ -40,6 +40,7 @@ RUN apt-get update && apt-get install -y \
     vim \
     nano \
     wget \
+    locales \ 
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen en_US.UTF-8; dpkg-reconfigure -f noninteractive locales
 
@@ -77,8 +78,8 @@ RUN groupadd -g $GID -o $USER \
 USER $USER
 
 RUN mkdir -p /home/$USER/$WORKSPACE
-RUN echo "chuj chuij" >> /home/$USER/.bashrc
 
 WORKDIR /home/$USER/$WORKSPACE
+
 CMD ["/bin/bash"]
 LABEL maintainer="Maciej Krupka (maciej.krupka@gmail.com)"
