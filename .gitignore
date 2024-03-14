@@ -5,3 +5,4 @@ src/external/*
 src/
 compile_commands.json
 scripts/*
+rosbags/

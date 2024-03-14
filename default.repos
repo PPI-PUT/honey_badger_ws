@@ -5,3 +5,7 @@ repositories:
     type: git
     url: https://github.com/amadeuszsz/create_pkg.git
     version: humble
+  src/hb40:
+    type: git
+    url: git@github.com:mabrobotics/hb40.git
+    version: devel
