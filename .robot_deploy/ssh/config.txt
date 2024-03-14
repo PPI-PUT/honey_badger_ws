@@ -1,0 +1,10 @@
+Host hb
+	HostName 10.0.0.10
+	HostKeyAlgorithms=+ssh-dss
+	KexAlgorithms +diffie-hellman-group1-sha1
+	user hb
+Host hborin
+	HostName 10.0.0.11
+	HostKeyAlgorithms=+ssh-dss
+	KexAlgorithms +diffie-hellman-group1-sha1
+	user hborin
