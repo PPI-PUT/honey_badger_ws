@@ -10,10 +10,10 @@ DEFAULT_IMAGE="macnack/hb_deploy:humble"
 PLATFORM="${1:-$DEFAULT_PLATFORM}"
 WORKSPACE="${2:-$DEFAULT_WORKSPACE}"
 USER="${3:-$DEFAULT_USER}"
-IMAGE="${3:-$DEFAULT_IMAGE}"
+IMAGE="${4:-$DEFAULT_IMAGE}"
 
 # Build command using the variables
-DOCKER_BUILDKIT=1 docker build --network=host --platform "${PLATFORM}" \
+docker build --network=host --platform "${PLATFORM}" \
     --build-arg WORKSPACE="${WORKSPACE}" \
     --build-arg USER="${USER}" \
     -t "${IMAGE}" .

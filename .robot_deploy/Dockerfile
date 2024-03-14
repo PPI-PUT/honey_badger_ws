@@ -3,8 +3,8 @@ FROM ros:humble-ros-base
 ARG USER
 ARG WORKSPACE
 ENV USER=${USER} \
-    UID=1500 \
-    GID=1500 \
+    UID=1000 \
+    GID=1000 \
     WORKSPACE=${WORKSPACE} \
     AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS=1 \
     AMENT_PREFIX_PATH=/opt/ros/humble \
