@@ -7,5 +7,8 @@ if [ -f /home/${USER}/${WORKSPACE}/install/setup.bash ]; then
     echo "source /home/${USER}/${WORKSPACE}/install/setup.bash" >> /home/${USER}/.bashrc;
 fi
 
+if [ ! -f .ros/mab/config/global.json ]; then
+    cp /home/${USER}/${WORKSPACE}/src/hb40/src/hb40_commons/config/global.json /home/${USER}/.ros/mab/config/global.json
+fi
 echo 'Startup completed.'
 exec "$@"
