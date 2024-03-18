@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     vim \
     nano \
+    unzip \
     wget \
     locales \ 
     && rm -rf /var/lib/apt/lists/* \
@@ -70,11 +71,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* 
 
+RUN curl -L -o libtorch.zip https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.1.0%2Bcpu.zip \
+    && unzip libtorch.zip \
+    && rm libtorch.zip \
+    && mv libtorch /usr/local/lib/
+ENV Torch_DIR=/usr/local/lib/libtorch
 # set up entrypoint
 COPY entrypoint /entrypoint
 ENTRYPOINT ["/entrypoint"]
 RUN groupadd -g $GID -o $USER \
-    && useradd -m -u $UID -g $GID -o -s /bin/bash $USER
+    && useradd -m -u $UID -g $GID -o -s /bin/bash $USER \
+    && echo "$USER:$USER" | chpasswd 
+RUN adduser $USER sudo
+    
 USER $USER
 
 RUN mkdir -p /home/$USER/$WORKSPACE

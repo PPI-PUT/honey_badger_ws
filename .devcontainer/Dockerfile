@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     vim \
     wget \
+    unzip \
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen en_US.UTF-8; dpkg-reconfigure -f noninteractive locales
 
@@ -58,6 +59,8 @@ RUN apt-get update && apt-get install -y \
     ros-humble-cv-bridge \
     ros-humble-plotjuggler-ros \
     ros-humble-teleop-twist-joy \
+    ros-humble-joint-state-publisher-gui \
+    ros-humble-rqt \
     python3-autopep8 \
     python3-colcon-common-extensions \
     python3-rosdep \
@@ -74,12 +77,16 @@ RUN curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.
     && echo "source /opt/ros/humble/setup.bash" >> /etc/skel/.bashrc \
     && echo "PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]\$ '" >> /etc/skel/.bashrc
 
+RUN curl -L -o libtorch.zip https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.1.0%2Bcpu.zip \
+    && unzip libtorch.zip \
+    && rm libtorch.zip \
+    && mv libtorch /usr/local/lib/
 
+ENV Torch_DIR=/usr/local/lib/libtorch
 # install python packages
 RUN python3 -m pip --no-cache-dir install \
     setuptools==58.2.0 
 
-RUN pip3 install scipy
 # set up entrypoint
 COPY entrypoint /entrypoint
 ENTRYPOINT ["/entrypoint"]
