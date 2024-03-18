@@ -12,3 +12,6 @@ repositories:
   src/hb40_neural_contoller:
     type: git
     url: https://github.com/PPI-PUT/hb40_neural_control.git
+  src/hb40_launch:
+    type: git
+    url: https://github.com/PPI-PUT/hb40_launch.git
