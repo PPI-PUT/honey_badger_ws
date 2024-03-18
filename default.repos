@@ -9,3 +9,6 @@ repositories:
     type: git
     url: git@github.com:mabrobotics/hb40.git
     version: devel
+  src/hb40_neural_contoller:
+    type: git
+    url: https://github.com/PPI-PUT/hb40_neural_control.git
