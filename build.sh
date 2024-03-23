@@ -3,7 +3,7 @@ set -e
 colcon build --symlink-install --executor parallel --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=On -DCMAKE_BUILD_TYPE=Release -Wall -Wextra -Wpedantic
 if ([ ! -f ~/.ros/mab/config/global.json ]) then
     echo "Copying local config from repo to ~/.ros/mab/config/global.json"
-    ln -s {$HOME}/honey_badger_ws/src/hb40/src/hb40_commons/config ~/.ros/mab/config/global.json
+    ln -s $HOME/honey_badger_ws/src/hb40/src/hb40_commons/config/global.json ~/.ros/mab/config/global.json
 fi
 
 echo "Syncing workspace"
