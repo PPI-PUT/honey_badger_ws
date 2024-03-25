@@ -97,9 +97,9 @@ cd .devcontainer
 ./build.sh
 cd ..
 ./run.sh
-cd your_workspace
+cd honey_badger_ws
 vcs import < default.repos
-colcon build
+bash build.sh
 ```
 To attach container to new terminal use `enter.sh`.
 
